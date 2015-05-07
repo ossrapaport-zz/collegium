@@ -27,10 +27,9 @@ ActiveRecord::Schema.define(version: 20150506223147) do
   create_table "papers", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.integer  "class_id"
-    t.integer  "rating"
-    t.integer  "review_count"
-    t.boolean  "reviewed"
+    t.integer  "rating",       default: 0
+    t.integer  "review_count", default: 0
+    t.boolean  "reviewed",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150506223147) do
     t.string   "school_address"
     t.string   "school_state"
     t.integer  "school_zipcode"
-    t.boolean  "reviewer"
+    t.boolean  "reviewer",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

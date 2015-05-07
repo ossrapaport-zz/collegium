@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :school_address
       t.string :school_state
       t.integer :school_zipcode
-      t.boolean :reviewer
+      t.boolean :reviewer, :default => false
 
       t.timestamps
     end
