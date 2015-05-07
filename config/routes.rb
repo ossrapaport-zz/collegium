@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  resources :users, only: [:show, :create, :update]
+  put "users/:id/become_reviewer", :to => "users#become_reviewer"
+  resources :papers, only: [:index, :show, :create, :destroy] do
+    resources :comments, only: [:create]
+  end
+  put "papers/:id/upvote", :to => "papers#upvote"
+  put "papers/:id/review", :to => "papers#review"
+  resources :comments, only: [:edit, :destroy]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
