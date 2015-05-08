@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150506223147) do
   create_table "papers", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
+    t.string   "attachment"
     t.integer  "rating",       default: 0
     t.integer  "review_count", default: 0
     t.boolean  "reviewed",     default: false
