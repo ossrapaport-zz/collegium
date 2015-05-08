@@ -10,7 +10,7 @@ var SignUpForm = React.createClass({
       school_name: React.findDOMNode(this.refs.school_name).value.trim(),
       school_address: React.findDOMNode(this.refs.school_address).value.trim(),
       school_state: React.findDOMNode(this.refs.school_state).value.trim(),
-      school_zipcode: React.findDOMNode(this.refs.school_zipcode).value.trim() 
+      school_zipcode: parseInt( React.findDOMNode(this.refs.school_zipcode).value.trim() ) 
     };
     this.props.onSignUp(data);
   },

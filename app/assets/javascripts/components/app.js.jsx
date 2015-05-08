@@ -6,19 +6,17 @@ var Main = React.createClass({
     };
   },
   renderHome: function(user) {
-    debugger;
     this.setState({user: user, mode: "home"});
   },
   handleLogIn: function(logInInfo) {
     $.ajax({
       url: "/sessions",
       method: "POST",
-      data: logInInfo
+      user: logInInfo
     }).done(this.renderHome);
     //.error(function()) TODO: Implement error handling here
   },
   handleSignUp: function(userInfo) {
-    debugger;
     $.ajax({
       url: "/users",
       method: "POST",
@@ -30,7 +28,10 @@ var Main = React.createClass({
     this.setState({user: {}, mode: "signUpForm"});
   },
   render: function() {
-    if (this.state.mode === "loggedIn") {
+    //TODO: Refactor this into one return statement
+    //and logic that precedes it
+    
+    if (this.state.mode === "home") {
       return (
         //<Home user={this.state.user}/>
         <p>Coming soon </p>
@@ -39,7 +40,7 @@ var Main = React.createClass({
       return (
         <div>
           <SignUp onSignUpRequest={this.handleSignUpRequest} />
-          <LogIn  onLogIn={this.handleLogIn} />
+          <LogIn onLogIn={this.handleLogIn} />
         </div>
       );  
     } else if (this.state.mode === "signUpForm") {
