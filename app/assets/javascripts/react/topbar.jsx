@@ -1,7 +1,0 @@
-App.TopBar = React.createClass({
-
-  
-
-
-
-});

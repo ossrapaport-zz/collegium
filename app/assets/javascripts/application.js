@@ -14,7 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require react
+//= require react_ujs
 //= require_self
-//= require ./react/log_in.jsx 
 //= require_tree .
 
+App = {
+  Models: {},
+  Collections: {},
+  Views: {},
+  Routers: {}
+};

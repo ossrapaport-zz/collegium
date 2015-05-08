@@ -1,7 +1,4 @@
-var App = {};
-
-
-App.Main = React.createClass({
+var App = React.createClass({
   getInitialState: function() {
     return {user: {}};
   },
@@ -16,18 +13,14 @@ App.Main = React.createClass({
     //.error(function()) TODO: Implement error handling here
   },
   render: function() {
-    if (this.state.user) {
-      <App.Home user={this.state.user} />
+    <p> here </p>
+    /*if (this.state.user) {
+      <Home user={this.state.user} />
     } else {
-      <App.SignUp /> 
-      <App.LogIn  onLogIn={this.handleLogIn} /> //How can I feed this errors?
-    }
-  },
-
-
-
+      <SignUp /> 
+      //<LogIn  onLogIn={this.handleLogIn} /> //How can I feed this errors?
+    }*/
+  }
 });
 
-
-
-React.render(<App.Main/>, $("#app-wrapper"));
+//React.render(<Main/>, $("#app-wrapper"));
