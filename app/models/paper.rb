@@ -2,6 +2,7 @@ class Paper < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
+  mount_uploader :attachment, AttachmentUploader
 
   after_initialize :check_review_count
 

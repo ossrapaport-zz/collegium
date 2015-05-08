@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require react
+//= require_self
+//= require ./react/log_in.jsx 
 //= require_tree .
+
