@@ -11,19 +11,14 @@ var LogIn = React.createClass({
   },
   render: function() {
     return (
-      <form className="logInForm" onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Your email" ref="email" />
-        <input type="password" placeholder="Your password" ref="password" />
-        <input type="submit" value="Log In" />
-      </form>
+      <div>
+        <p>Log in if you already have an account...</p>
+        <form className="logInForm" onSubmit={this.handleSubmit}>
+          <input type="text" placeholder="Your email" ref="email" />
+          <input type="password" placeholder="Your password" ref="password" />
+          <input type="submit" value="Log In" />
+        </form>
+      </div>
     );
   }
 });
-
-/*<input type="text" placeholder="Your email address" ref="email">
-<input type="password" placeholder="Your password" ref="password">  
-<input type="submit" value="Log In">
-<form className="logInForm" onSubmit={this.handleSubmit}>
-<p>If you already have an account...</p>  
-
-</form>*/

@@ -1,14 +1,11 @@
 var SignUp = React.createClass({
-  getInitialState: function() {
-    this.setState({ element: React.findDOMNode(this) })
-  },
-  handleSubmit: function(e) {
+  handleSignUpSubmit: function(e) {
     e.preventDefault();
-    React.render(SignUpForm, this.state.element);
+    this.props.onSignUpRequest();
   },
   render: function() {
     return (
-      <form className="firstSignForm" onSubmit={this.handleSubmit}>
+      <form className="firstSignForm" onSubmit={this.handleSignUpSubmit}>
         <input type="submit" value="Sign Up" />
       </form>
     );

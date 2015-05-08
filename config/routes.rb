@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "application#index"
+  root "home#index"
   resources :users, only: [:show, :create, :update]
   put "users/:id/become_reviewer", :to => "users#become_reviewer"
   resources :papers, only: [:index, :show, :create, :destroy] do

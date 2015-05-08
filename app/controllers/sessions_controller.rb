@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
+    binding.pry
     email = params[:email]
     password = params[:password]
 

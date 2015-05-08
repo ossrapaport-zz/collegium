@@ -16,11 +16,4 @@
 //= require react
 //= require react_ujs
 //= require_self
-//= require_tree .
-
-App = {
-  Models: {},
-  Collections: {},
-  Views: {},
-  Routers: {}
-};
+//= require_tree ./components
