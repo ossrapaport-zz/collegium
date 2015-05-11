@@ -7,7 +7,11 @@ class PapersController < ApplicationController
 
   def show
     paper = Paper.find(params[:id])
-    render json: paper
+    paper_data = {
+     paper: paper,
+     user: paper.user
+    }
+    render json: paper_data
   end
 
   def create

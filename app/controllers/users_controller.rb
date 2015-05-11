@@ -31,9 +31,15 @@ class UsersController < ApplicationController
     render json: user
   end
 
+  def get_papers
+    user = User.find(params[:id])
+    papers = user.papers
+    render json: papers
+  end
+
   private
   def user_params
-    params.require(:user).permit(
+    params.permit(
       :email, 
       :password, 
       :password_confirmation,
