@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
@@ -38,6 +37,17 @@ gem 'react-rails', '~> 1.0'
 #CarrierWave for AWS
 gem 'carrierwave'
 
+#Special CarrierWave-AWS gem
+#gem 'carrierwave-aws'
+
+#Fog AWS Gem
+gem 'fog'
+
+#AWS Gem
+gem 'aws-sdk', '~> 2'
+
+#Figaro for ENV management
+gem 'figaro'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

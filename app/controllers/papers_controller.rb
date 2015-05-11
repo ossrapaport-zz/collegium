@@ -15,6 +15,10 @@ class PapersController < ApplicationController
   end
 
   def create
+    bucket = S3.bucket("collegium")
+    data = Base64.decode64(params[:attachment].to_s)
+
+    binding.pry
     paper = Paper.new(paper_params)
     if paper.save
       render json: paper
@@ -48,7 +52,7 @@ class PapersController < ApplicationController
 
   private
   def paper_params
-    paper_params.require(:paper).permit(
+    params.require(:paper).permit(
       :title,
       :user_id
       #Something with AWS
