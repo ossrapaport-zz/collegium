@@ -35,7 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'react-rails', '~> 1.0'
 
 #CarrierWave for AWS
-gem 'carrierwave'
+gem 'carrierwave', '~> 0.10.0'
 
 #Special CarrierWave-AWS gem
 #gem 'carrierwave-aws'
