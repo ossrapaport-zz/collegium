@@ -1,19 +1,19 @@
-var Main = React.createClass({
+var Landing = React.createClass({
   getInitialState: function() {
     return {
       user: {}, 
       mode: "landing"
     };
   },
-  renderHome: function(user) {
-    this.setState({user: user, mode: "home"});
+  renderMain: function(user) {
+    this.setState({user: user, mode: "main"});
   },
   handleLogIn: function(logInInfo) {
     $.ajax({
       url: "/sessions",
       method: "POST",
-      user: logInInfo
-    }).done(this.renderHome);
+      data: logInInfo
+    }).done(this.renderMain);
     //.error(function()) TODO: Implement error handling here
   },
   handleSignUp: function(userInfo) {
@@ -21,7 +21,7 @@ var Main = React.createClass({
       url: "/users",
       method: "POST",
       data: userInfo
-    }).done(this.renderHome);
+    }).done(this.renderMain);
     //.error(function()) TODO: Implement error handling
   },
   handleSignUpRequest: function() {
@@ -31,10 +31,9 @@ var Main = React.createClass({
     //TODO: Refactor this into one return statement
     //and logic that precedes it
     
-    if (this.state.mode === "home") {
+    if (this.state.mode === "main") {
       return (
-        //<Home user={this.state.user}/>
-        <p>Coming soon </p>
+        <Main user={this.state.user}/>
       );
     } else if (this.state.mode === "landing") {
       return (
