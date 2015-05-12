@@ -13,6 +13,91 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+
+body {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  background: #ecf0f1;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type=submit] {
+  border: none;
+  display: block;
+  background: #bdc3c7;
+  height: 50px;
+  width: auto;
+  padding: 15px;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+input[type=submit]:hover{
+  background: #136899;
+}
+
+input[type=text],
+input[type=password]  {
+  width: auto; 
+  height: 40px;
+  margin: 10px 10px 10px 0;
+  font-size: 14px;
+  padding-left: 15px;
+  background: #fff;
+  border: none;
+  color: #136899;
+  outline: none;
+  border-bottom: 2px solid #fff;
+}
+
+button[type=button] {
+  border: none;
+  display: block;
+  background: #bdc3c7;
+  height: 50px;
+  width: auto;
+  padding: 15px;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  margin: 20px 10px;
+  cursor: pointer;
+  float: left;
+}
+
+button[type=button]:hover {
+  background: #136899;
+}
+
+.feed {
+  display: block;
+  width: 900px;
+  height: auto;
+  margin: auto;
+  clear: both;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+h1 {
+  color: #136899 ;
+}
+
 .hidden {
   display: none;
 }
+
