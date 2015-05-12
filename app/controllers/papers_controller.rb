@@ -18,7 +18,6 @@ class PapersController < ApplicationController
     #Check this out: http://www.davehulihan.com/uploading-data-uris-in-carrierwave/
     #Also, http://stackoverflow.com/questions/16308218/convert-base64-image-to-stringio-for-carrierwave
     paper = Paper.new(paper_params)
-    binding.pry
     if paper.save
       render json: paper
     else

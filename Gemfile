@@ -35,17 +35,20 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'react-rails', '~> 1.0'
 
 #CarrierWave for AWS
-#gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 #Special CarrierWave-AWS gem
-gem 'carrierwave-aws'
+#gem 'carrierwave-aws'
 gem 'carrierwave-base64'
 
 #Fog AWS Gem
 #gem 'fog-aws'
 
 #AWS Gem
-gem 'aws-sdk', '~> 1.58'
+#gem 'aws-sdk', '~> 1.58'
+
+#Gem for server
+gem 'thin'
 
 #Figaro for ENV management
 gem 'figaro'

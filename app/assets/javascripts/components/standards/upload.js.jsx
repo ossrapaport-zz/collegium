@@ -15,7 +15,6 @@ var Upload = React.createClass({
       });
     }
 
-    
     reader.onloadend = function() {
       $.ajax({
         url: "/papers",
@@ -32,16 +31,6 @@ var Upload = React.createClass({
     }
 
     reader.readAsDataURL(file);
-    
-    /*$.ajax({
-      url: "/papers",
-      method: "POST",
-      data: {
-        title: fileTitle,
-        avatar: file,
-        user_id: parseInt(userID) 
-      }
-    }).done(this.finishUpload);*/
   },
   finishUpload: function() {
     console.log("Finished the upload");
