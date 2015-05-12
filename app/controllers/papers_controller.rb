@@ -15,6 +15,8 @@ class PapersController < ApplicationController
   end
 
   def create
+    #Check this out: http://www.davehulihan.com/uploading-data-uris-in-carrierwave/
+    #Also, http://stackoverflow.com/questions/16308218/convert-base64-image-to-stringio-for-carrierwave
     paper = Paper.new(paper_params)
     if paper.save
       render json: paper
@@ -48,10 +50,10 @@ class PapersController < ApplicationController
 
   private
   def paper_params
-    paper_params.require(:paper).permit(
+    params.permit(
       :title,
-      :user_id
-      #Something with AWS
+      :user_id,
+      :avatar
     )
   end
 
