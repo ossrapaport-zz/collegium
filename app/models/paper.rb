@@ -1,6 +1,6 @@
 class Paper < ActiveRecord::Base
 
-  mount_uploader :avatar, AvatarUploader
+  mount_base64_uploader :avatar, AvatarUploader
 
   belongs_to :user
   has_many :comments

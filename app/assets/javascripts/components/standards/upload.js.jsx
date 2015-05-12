@@ -14,6 +14,7 @@ var Upload = React.createClass({
         data_uri: upload.target.result
       });
     }
+
     
     reader.onloadend = function() {
       $.ajax({
@@ -24,11 +25,13 @@ var Upload = React.createClass({
           avatar: this.result,
           user_id: parseInt(userID) 
         } 
-      }).done(self.finishUpload);
+      }).done(function() {
+        debugger;
+        self.finishUpload();
+      });
     }
 
     reader.readAsDataURL(file);
-    //TODO: Turn this on once uploading is possible
     
     /*$.ajax({
       url: "/papers",
@@ -41,19 +44,18 @@ var Upload = React.createClass({
     }).done(this.finishUpload);*/
   },
   finishUpload: function() {
-    debugger;
+    console.log("Finished the upload");
     React.findDOMNode(this.refs.title).value = "";
     React.findDOMNode(this.refs.file).value = "";
     this.props.afterUpload();
   },
   render: function() {
     return (
-      <% x = "poop" %>
-      <form id="modal" className={this.props.showModal ? "" : "hidden" }>
-        <h5 onClick={this.finishUpload}><%= "#{x}" %></h5>
+      <form id="modal" onSubmit={this.uploadFile} className={this.props.showModal ? "" : "hidden" }>
+        <h5 onClick={this.finishUpload}> X </h5>
         <input type="text" placeholder="The title of the paper" ref="title" />
         <input type="file" ref="file" />
-        <input type="submit" onClick={this.uploadFile} value="Upload my file" />
+        <input type="submit" value="Upload my file" />
       </form>
     );
   }

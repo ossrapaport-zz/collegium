@@ -30,7 +30,7 @@ var Landing = React.createClass({
   render: function() {
     //TODO: Refactor this into one return statement
     //and logic that precedes it
-    
+    console.log("I'm rerendering");
     if (this.state.mode === "main") {
       return (
         <Main user={this.state.user}/>
