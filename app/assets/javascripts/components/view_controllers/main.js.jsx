@@ -63,7 +63,7 @@ var Main = React.createClass({
     } else if (this.state.page === "profile") {
       page = <Profile onPaperSelect={this.showPaper} user={this.props.user} data={this.state.data} />
     } else if (this.state.page === "paper") {
-      page = <FullPaper data={this.state.data} user={this.props.user}/> 
+      page = <FullPaper data={this.state.data} current_user={this.props.user}/> 
     }
     return (
       <div id="main-div">
