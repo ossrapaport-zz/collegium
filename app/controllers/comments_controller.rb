@@ -3,15 +3,22 @@ class CommentsController < ApplicationController
   def index
     paper = Paper.find(params[:paper_id])
     comments = paper.comments
+    comments_data = comments.map do |comment|
+      hash = {:comment => comment}
+      hash[:user] = comment.user
+      hash
+    end
 
-    render json: comments
+    render json: comments_data
   end
 
   def create
     comment = Comment.new(comment_params)
     comment.paper_id = params[:paper_id].to_i
     if comment.save
-      render json: comment
+      comment_data = {:comment => comment}
+      comment_data[:user] = comment.user
+      render json: comment_data
     else
       render json: { errors: comment.errors.full_messages }, status: 422
     end
@@ -35,8 +42,9 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(
+    params.permit(
       :text,
+      :paper_id,
       :user_id
     )
   end

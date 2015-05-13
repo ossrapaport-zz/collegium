@@ -101,3 +101,9 @@ h1 {
   display: none;
 }
 
+.pdf {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+

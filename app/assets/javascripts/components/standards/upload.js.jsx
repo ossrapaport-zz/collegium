@@ -9,43 +9,36 @@ var Upload = React.createClass({
     var self = this;
     var reader = new FileReader();
     var file = React.findDOMNode(this.refs.file).files[0];
-    reader.onload = function(upload) {
-      self.setState({
-        data_uri: upload.target.result
-      });
-    }
 
-    reader.onloadend = function() {
+    reader.onload = function(upload) {
       $.ajax({
         url: "/papers",
         method: "POST",
         data: {
           title: fileTitle,
-          avatar: this.result,
+          attachment: this.result,
           user_id: parseInt(userID) 
         } 
-      }).done(function() {
-        debugger;
-        self.finishUpload();
+      }).done(function(paperData) {
+        self.finishUpload(paperData);
       });
     }
 
     reader.readAsDataURL(file);
   },
-  finishUpload: function() {
-    console.log("Finished the upload");
+  finishUpload: function(paperData) {
     React.findDOMNode(this.refs.title).value = "";
     React.findDOMNode(this.refs.file).value = "";
     this.props.afterUpload();
   },
   render: function() {
     return (
-      <form id="modal" onSubmit={this.uploadFile} className={this.props.showModal ? "" : "hidden" }>
+      <div className="modal"  className={this.props.showModal ? "" : "hidden" }>
         <h5 onClick={this.finishUpload}> X </h5>
         <input type="text" placeholder="The title of the paper" ref="title" />
         <input type="file" ref="file" />
-        <input type="submit" value="Upload my file" />
-      </form>
+        <input type="submit" onClick={this.uploadFile} value="Upload my file" />
+      </div>
     );
   }
 });

@@ -2,8 +2,8 @@ var CommentLi = React.createClass({
   render: function() {
     return (
       <div className="comment">
-        <h7>{this.props.data.author}</h7>
-        <p className="commentText">{this.props.data.text}</p>
+        <p>{this.props.data.user.first_name} {this.props.data.user.last_name}</p>
+        <p className="commentText">{this.props.data.comment.text}</p>
       </div>
     );
   }
