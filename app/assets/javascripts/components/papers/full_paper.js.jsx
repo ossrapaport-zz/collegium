@@ -18,8 +18,7 @@ var FullPaper = React.createClass({
       <div className="paper">
         <h2>{this.props.data.paper.title}</h2>
         <h5>By {this.props.data.user.first_name} {this.props.data.user.last_name} </h5>
-        <h5>Likes: {this.state.likes}</h5>
-        <button type="button" onClick={this.upvote}>Like</button>
+        <h5><button type="button" onClick={this.upvote}></button> Likes: {this.state.likes}</h5>
         <object type="application/pdf" className="pdf" data={pdfURL}></object> 
         <div>
           <CommentBox current_user={this.props.current_user} data={this.props.data}/>
