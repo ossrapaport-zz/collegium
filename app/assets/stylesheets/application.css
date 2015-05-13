@@ -18,11 +18,12 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
 
 body {
-  width: 1000px;
+  width: 900px;
   height: auto;
   margin: 0 auto;
   background: #ecf0f1;
   font-family: 'Open Sans', sans-serif;
+  padding: 20px;
 }
 
 input[type=submit] {
@@ -32,7 +33,8 @@ input[type=submit] {
   height: 50px;
   width: auto;
   padding: 15px;
-  font-size: 14px;
+  padding-top:12px;
+  font-size: 18px;
   color: #ffffff;
   text-align: center;
   border-radius: 5px;
@@ -41,6 +43,7 @@ input[type=submit] {
   transition: all 0.15s linear;
   margin: 20px 0;
   cursor: pointer;
+  float: left;
 }
 
 input[type=submit]:hover{
@@ -49,26 +52,27 @@ input[type=submit]:hover{
 
 input[type=text],
 input[type=password]  {
-  width: auto; 
-  height: 40px;
+  width: 100%; 
+  height: 60px;
   margin: 10px 10px 10px 0;
-  font-size: 14px;
+  font-size: 20px;
   padding-left: 15px;
   background: #fff;
   border: none;
   color: #136899;
   outline: none;
   border-bottom: 2px solid #fff;
+  border-radius: 5px
 }
 
 button[type=button] {
   border: none;
   display: block;
   background: #bdc3c7;
-  height: 50px;
+  height: 60px;
   width: auto;
   padding: 15px;
-  font-size: 14px;
+  font-size: 18px;
   color: #ffffff;
   text-align: center;
   border-radius: 5px;
@@ -98,6 +102,20 @@ h1 {
   color: #136899 ;
 }
 
+h2 {
+  line-height: 14px;
+}
+
+.name {
+
+}
+
+.form {
+  padding-top:30px;
+  width: 400px;
+  margin: auto;
+}
+
 .hidden {
   display: none;
 }
@@ -106,5 +124,23 @@ h1 {
   width: 300px;
   height: 300px;
   border: 1px solid black;
+}
+
+#landing-div {
+  text-align: center;
+}
+
+#login-div {
+  float: right;
+}
+
+#login-button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signup-button {
+  float: left;
+  
 }
 

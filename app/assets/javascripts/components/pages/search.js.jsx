@@ -35,7 +35,7 @@ var Search = React.createClass({
   },
   render: function() {
     return (
-      <div className="search-div">
+      <div id="search-div" className="form">
         <select ref="search_field" data-placeholder="Select some tags" className="chosen-select" multiple>
           {this.state.tags.map(function(tag) {
             return (

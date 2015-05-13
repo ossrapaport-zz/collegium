@@ -16,7 +16,7 @@ var SignUpForm = React.createClass({
   },
   render: function() {
     return (
-      <form className="signUpForm" onSubmit={this.handleSubmit}>
+      <form id="signUpForm" className="form" onSubmit={this.handleSubmit}>
         <input type="text" placeholder="Your first name" ref="first_name" />
         <input type="text" placeholder="Your last name" ref="last_name" />        
         <input type="text" placeholder="Your email" ref="email" />

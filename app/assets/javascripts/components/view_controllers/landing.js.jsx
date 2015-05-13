@@ -36,7 +36,7 @@ var Landing = React.createClass({
       );
     } else if (this.state.mode === "landing") {
       return (
-        <div>
+        <div id="landing-div">
           <SignUp onSignUpRequest={this.handleSignUpRequest} />
           <LogIn onLogIn={this.handleLogIn} />
         </div>
