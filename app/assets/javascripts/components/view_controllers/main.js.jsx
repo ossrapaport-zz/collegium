@@ -2,19 +2,26 @@ var Main = React.createClass({
   getInitialState: function() {
     return {page: "home", show_modal: false, data: []};
   },
-  navigatePage: function(newState) {
-    this.setState({page: newState});
+  navigatePage: function(newPage) {
+    var newState = {
+      page: newPage 
+    }
+    if (newPage === "search") {
+      newState.data = [];
+    }
+    this.setState(newState);
   },
   showPaper: function(paperID) {
-    console.log("You have to show the paper please");
-    //TODO: Turn this on when papers can be uploaded
-    /*$.get("/papers/" + paperID).done(function(paperData) {
+    $.get("/papers/" + paperID).done(function(paperData) {
       this.setState({page: "paper", data: paperData});
-    }.bind(this));*/
+    }.bind(this));
   },
   searchForPapers: function(paperTags) {
-    //TODO: Set up the search
-    console.log("You gotta search");
+    $.post("/papers/search", {
+      tags: paperTags
+    }).done(function(papers) {
+      this.setState({data: papers});
+    }.bind(this));
   },
   prepareUpload: function() {
     this.setState({show_modal: true});
@@ -25,30 +32,30 @@ var Main = React.createClass({
   loadPapersFromServer: function() {
     if (this.state.page === "home") {
       $.get("/papers").done(function(papers) {
-        console.log("Hitting this");
-        //this.setState({data: papers});
-      });
+        this.setState({data: papers});
+      }.bind(this));
     } else if (this.state.page === "profile") {
       $.get("/users/" + this.props.user.id + "/papers").done(function(papers) {
-        console.log("Still figuring out papers");
-        //this.setState({data: papers});
-      });
+        this.setState({data: papers});
+      }.bind(this));
     } 
   },
-  componentDidMount: function() {
+  componentWillMount: function() {
     this.loadPapersFromServer();
+  },
+  componentDidMount: function() {
     setInterval(this.loadPapersFromServer, 2000);
   },
   render: function() {
     var page;
     if (this.state.page === "home") {
-      page = <Home user={this.props.user} data={this.state.data}/>               
+      page = <Home onPaperSelect={this.showPaper} user={this.props.user} data={this.state.data}/>               
     } else if (this.state.page === "search") {
-      page = <Search user={this.props.user} onSearch={this.searchForPapers}/> 
+      page = <Search onPaperSelect={this.showPaper} data={this.state.data} user={this.props.user} onSearch={this.searchForPapers}/> 
     } else if (this.state.page === "profile") {
-      page = <Profile user={this.props.user} data={this.state.data} />
+      page = <Profile onPaperSelect={this.showPaper} user={this.props.user} data={this.state.data} />
     } else if (this.state.page === "paper") {
-      page = <FullPaper paper={this.state.data} user={this.props.user}/> 
+      page = <FullPaper data={this.state.data} user={this.props.user}/> 
     }
     return (
       <div>

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
   put "papers/:id/upvote", :to => "papers#upvote"
   put "papers/:id/review", :to => "papers#review"
+  post "papers/search", :to => "papers#search"
   resources :comments, only: [:edit, :destroy]
+  resources :tags, only: [:index, :create]
   post "/sessions", :to => "sessions#create"
   delete "/sessions", :to => "sessions#destroy"
 

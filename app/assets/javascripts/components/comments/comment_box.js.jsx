@@ -3,22 +3,23 @@ var CommentBox = React.createClass({
     return {data: []};
   },
   handleCommentSubmit: function(commentText) {
+    console.log("Loading comments well");
     $.ajax({
-      url: "/papers/" + this.props.paper.id + "/comments",
+      url: "/papers/" + this.props.data.paper.id + "/comments",
       method: "POST",
       data: {
         text: commentText,
-        user_id: this.props.user.id
+        user_id: this.props.data.user.id
       }
-    }.bind(this)).done(function(comment) {
+    }).done(function(comment) {
       var comments = this.state.data;
-      var updatedComments = commments.concat([comment]);
+      var updatedComments = comments.concat([comment]);
       this.setState({data: updatedComments});
-    });
+    }.bind(this));
     //TODO: Implement error handling
   },
   loadCommentsFromServer: function() {
-    $.get("/papers/" + this.props.paper.id + "/comments").done(function(comments) {
+    $.get("/papers/" + this.props.data.paper.id + "/comments").done(function(comments) {
       this.setState({data: comments});
     }.bind(this));
   },

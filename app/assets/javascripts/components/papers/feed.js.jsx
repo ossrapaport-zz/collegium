@@ -1,20 +1,23 @@
 var Feed = React.createClass({
   handlePaperClick: function(e) {
-    e.preventDefault();
-    debugger;
-    //TODO: Find out how to get the paper's ID
+    var paperID = parseInt( e.currentTarget.getAttribute("data-id") );
+    this.props.onPaperClick(paperID);
   },
   render: function() {
-    //TODO: Check if this works
-    /*var paperNodes = this.props.data.map(function(paper) {
-      return (
-        <PaperLi data={paper} key={paper.id} onPaperClick={this.handlePaperClick} />
-      );
-    });*/
-    //{paperNodes}
+    var paperNodes;
+    if (typeof this.props.data !== "undefined" && this.props.data.length) {
+      paperNodes = this.props.data.map(function(paper) {
+        return (
+          <li onClick={this.handlePaperClick} data-id={paper.id} key={paper.id}>{paper.title}</li>
+        );
+      }.bind(this));
+    } else {
+      paperNodes = [];
+    }
+
     return (
       <div className="feed">
-        Paper data coming soon
+        {paperNodes}
       </div>
     );
   }

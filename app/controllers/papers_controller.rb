@@ -2,6 +2,7 @@ class PapersController < ApplicationController
 
   def index
     papers = Paper.all
+    sorted = papers.order(:created_at)
     render json: papers
   end
 
@@ -9,15 +10,21 @@ class PapersController < ApplicationController
     paper = Paper.find(params[:id])
     paper_data = {
      paper: paper,
-     user: paper.user
+     user: paper.user,
+     tags: paper.tags
     }
     render json: paper_data
   end
 
   def create
-    #Check this out: http://www.davehulihan.com/uploading-data-uris-in-carrierwave/
-    #Also, http://stackoverflow.com/questions/16308218/convert-base64-image-to-stringio-for-carrierwave
     paper = Paper.new(paper_params)
+    tagIDs = params[:tags]
+
+    tagIDs.each do |tagID|
+      tag = Tag.find(tagID)
+      paper.tags << tag
+    end
+
     if paper.save
       render json: paper
     else
@@ -45,7 +52,25 @@ class PapersController < ApplicationController
     paper = Paper.find(params[:id])
     paper.rating = paper.rating + 1
     paper.save
-    render json: paper
+    paper_data = {
+      paper: paper,
+      user: paper.user,
+      tags: paper.tags
+    }
+    render json: paper_data
+  end
+
+  def search
+    tagIDs = params[:tags]
+    tags_hash = Hash.new
+
+    tagIDs.each do |tagID|
+      tags_hash["id"] = tagID
+    end
+
+    papers = Paper.includes(:tags).where( :tags => tags_hash )
+    render json: papers
+
   end
 
   private
@@ -53,7 +78,7 @@ class PapersController < ApplicationController
     params.permit(
       :title,
       :user_id,
-      :avatar
+      :attachment
     )
   end
 

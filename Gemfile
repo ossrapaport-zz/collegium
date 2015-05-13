@@ -50,6 +50,10 @@ gem 'carrierwave-base64'
 #Gem for server
 gem 'thin'
 
+#Chosen for stylin'
+gem 'compass-rails', '~>2.0.2'
+gem 'chosen-rails'
+
 #Figaro for ENV management
 gem 'figaro'
 group :development, :test do
