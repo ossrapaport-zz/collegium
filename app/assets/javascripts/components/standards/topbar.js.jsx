@@ -7,6 +7,10 @@ var TopBar = React.createClass({
     e.preventDefault();
     this.props.onUpload();
   },
+  handleLogout: function(e) {
+    e.preventDefault();
+    this.props.onLogOut();
+  },
   render: function() {
     return (
       <div id="topbar-div">
@@ -14,6 +18,7 @@ var TopBar = React.createClass({
         <button type="button" data-id="search" onClick={this.handleClick}>Search</button>
         <button type="button" data-id="home" onClick={this.handleClick}>Home</button>
         <button type="button" data-id="upload" onClick={this.handleUpload}>Upload Your Work</button>
+        <button type="button" data-id="logout" onClick={this.handleLogout}>Log Out</button> 
       </div>
     );
   }

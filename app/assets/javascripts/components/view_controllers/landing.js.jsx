@@ -27,12 +27,15 @@ var Landing = React.createClass({
   handleSignUpRequest: function() {
     this.setState({user: {}, mode: "signUpForm"});
   },
+  handleLogOut: function() {
+    this.setState({mode: "landing"});
+  },
   render: function() {
     //TODO: Refactor this into one return statement
     //and logic that precedes it
     if (this.state.mode === "main") {
       return (
-        <Main user={this.state.user}/>
+        <Main onLogOut={this.handleLogOut} user={this.state.user}/>
       );
     } else if (this.state.mode === "landing") {
       return (

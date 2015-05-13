@@ -3,13 +3,12 @@ var CommentBox = React.createClass({
     return {data: []};
   },
   handleCommentSubmit: function(commentText) {
-    console.log("Loading comments well");
     $.ajax({
       url: "/papers/" + this.props.data.paper.id + "/comments",
       method: "POST",
       data: {
         text: commentText,
-        user_id: this.props.data.user.id
+        user_id: this.props.current_user.id
       }
     }).done(function(comment) {
       var comments = this.state.data;
