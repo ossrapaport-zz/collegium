@@ -9,7 +9,7 @@ var TopBar = React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <div id="topbar-div">
         <button type="button" data-id="profile" onClick={this.handleClick}>Profile</button>
         <button type="button" data-id="search" onClick={this.handleClick}>Search</button>
         <button type="button" data-id="home" onClick={this.handleClick}>Home</button>

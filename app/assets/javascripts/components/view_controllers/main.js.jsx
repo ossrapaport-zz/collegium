@@ -58,7 +58,7 @@ var Main = React.createClass({
       page = <FullPaper data={this.state.data} user={this.props.user}/> 
     }
     return (
-      <div>
+      <div id="main-div">
         <TopBar user={this.props.user} onNavigation={this.navigatePage} onUpload={this.prepareUpload}/>
         {page}
         <Upload showModal={this.state.show_modal} afterUpload={this.concludeUpload} user={this.props.user} />

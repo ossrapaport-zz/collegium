@@ -5,7 +5,7 @@ var Home = React.createClass({
   },
   render: function() {
     return (
-      <div className="main" id="home">
+      <div id="home-div">
         <Feed data={this.props.data} onPaperClick={this.handlePaperClick} />
       </div>
     );

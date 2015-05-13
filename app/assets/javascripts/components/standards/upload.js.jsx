@@ -60,7 +60,7 @@ var Upload = React.createClass({
   },
   render: function() {
     return (
-      <div className="modal"  className={this.props.showModal ? "" : "hidden" }>
+      <div id="upload-div" className="form" className="modal"  className={this.props.showModal ? "" : "hidden" }>
         <h5 onClick={this.finishUpload}> X </h5>
         <select data-placeholder="Select some tags" className="chosen-select" ref="tags" multiple>
           {this.state.data.map(function(tag) {

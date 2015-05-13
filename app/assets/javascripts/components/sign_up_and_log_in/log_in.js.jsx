@@ -11,12 +11,12 @@ var LogIn = React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <div id="log-in-div" >
         <p>Log in if you already have an account...</p>
-        <form className="logInForm" onSubmit={this.handleSubmit}>
+        <form className="form" onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Your email" ref="email" />
           <input type="password" placeholder="Your password" ref="password" />
-          <input type="submit" value="Log In" />
+          <input type="submit" id="login-button" value="Log In" />
         </form>
       </div>
     );

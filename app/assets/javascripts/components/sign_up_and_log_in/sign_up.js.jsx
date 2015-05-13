@@ -6,7 +6,7 @@ var SignUp = React.createClass({
   render: function() {
     return (
       <form className="firstSignForm" onSubmit={this.handleSignUpSubmit}>
-        <input type="submit" value="Sign Up" />
+        <input type="submit" className="signup-button" value="Sign Up" />
       </form>
     );
   }
