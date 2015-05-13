@@ -10,13 +10,21 @@ class PapersController < ApplicationController
     paper = Paper.find(params[:id])
     paper_data = {
      paper: paper,
-     user: paper.user
+     user: paper.user,
+     tags: paper.tags
     }
     render json: paper_data
   end
 
   def create
     paper = Paper.new(paper_params)
+    tagIDs = params[:tags]
+
+    tagIDs.each do |tagID|
+      tag = Tag.find(tagID)
+      paper.tags << tag
+    end
+
     if paper.save
       render json: paper
     else
@@ -46,9 +54,23 @@ class PapersController < ApplicationController
     paper.save
     paper_data = {
       paper: paper,
-      user: paper.user
+      user: paper.user,
+      tags: paper.tags
     }
     render json: paper_data
+  end
+
+  def search
+    tagIDs = params[:tags]
+    tags_hash = Hash.new
+
+    tagIDs.each do |tagID|
+      tags_hash["id"] = tagID
+    end
+
+    papers = Paper.includes(:tags).where( :tags => tags_hash )
+    render json: papers
+
   end
 
   private

@@ -16,9 +16,9 @@ var Feed = React.createClass({
     }
 
     return (
-      <ul className="feed">
+      <div className="feed">
         {paperNodes}
-      </ul>
+      </div>
     );
   }
 });
