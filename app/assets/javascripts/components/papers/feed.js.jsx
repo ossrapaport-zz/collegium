@@ -8,7 +8,7 @@ var Feed = React.createClass({
     if (typeof this.props.data !== "undefined" && this.props.data.length) {
       paperNodes = this.props.data.map(function(paper) {
         return (
-          <li onClick={this.handlePaperClick} data-id={paper.id} key={paper.id}>{paper.title}</li>
+          <li className="title" onClick={this.handlePaperClick} data-id={paper.id} key={paper.id}> <img className="paper-icon" src="http://cdn.flaticon.com/png/256/61341.png" width="15" height="15" /> {paper.title}</li>
         );
       }.bind(this));
     } else {
@@ -16,9 +16,9 @@ var Feed = React.createClass({
     }
 
     return (
-      <div className="feed">
+      <ul className="feed">
         {paperNodes}
-      </div>
+      </ul>
     );
   }
 });
