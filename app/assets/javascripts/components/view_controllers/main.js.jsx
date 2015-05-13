@@ -29,6 +29,14 @@ var Main = React.createClass({
   concludeUpload: function() {
     this.setState({show_modal: false});
   },
+  handleLogOut: function() {
+    $.ajax({
+      url: "/sessions",
+      method: "DELETE"
+    }).done(function() {
+      this.props.onLogOut();
+    }.bind(this));
+  },
   loadPapersFromServer: function() {
     if (this.state.page === "home") {
       $.get("/papers").done(function(papers) {
@@ -59,7 +67,7 @@ var Main = React.createClass({
     }
     return (
       <div id="main-div">
-        <TopBar user={this.props.user} onNavigation={this.navigatePage} onUpload={this.prepareUpload}/>
+        <TopBar user={this.props.user} onNavigation={this.navigatePage} onUpload={this.prepareUpload} onLogOut={this.handleLogOut}/>
         {page}
         <Upload showModal={this.state.show_modal} afterUpload={this.concludeUpload} user={this.props.user} />
       </div>
