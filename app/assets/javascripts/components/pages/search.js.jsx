@@ -29,21 +29,21 @@ var Search = React.createClass({
       this.setState({tags: tags});
       $(React.findDOMNode(this.refs.search_field)).chosen({
         no_results_text: "There's no tag with that name",
-        width: "200px"
+        width: "100%"
       });
     }.bind(this));
   },
   render: function() {
     return (
       <div id="search-div" className="form">
-        <select ref="search_field" data-placeholder="Select some tags" className="chosen-select" multiple>
+        <select id="search-select" ref="search_field" data-placeholder="Select tags to search by" className="chosen-select" multiple>
           {this.state.tags.map(function(tag) {
             return (
               <option value={tag.id} key={tag.id}>{tag.name}</option>
             );
           }, this)}
         </select>
-        <input type="submit" className="button" className="search" onClick={this.search} />
+        <input type="submit" value="Search" className="button" id="search-by-tags-button" onClick={this.search} />
         <Feed ref="here" onPaperClick={this.handlePaperClick} data={this.props.data} />
       </div>
     );

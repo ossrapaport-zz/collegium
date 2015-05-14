@@ -4,7 +4,6 @@ var Profile = React.createClass({
   render: function() {
     return (
       <div id="profile-div">
-        <img src={this.props.user.photo} alt="Profile Picture" />
         <h2 className="name"> 
           {this.props.user.first_name} {this.props.user.last_name}
         </h2>

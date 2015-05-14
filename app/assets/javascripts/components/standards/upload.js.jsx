@@ -21,7 +21,6 @@ var Upload = React.createClass({
     
     var tagMenu = (React.findDOMNode(this.refs.tags)); 
     var tags = this.getSelectValues(tagMenu);
-    debugger;
     var self = this;
     var reader = new FileReader();
     var file = React.findDOMNode(this.refs.file).files[0];
@@ -53,15 +52,17 @@ var Upload = React.createClass({
       this.setState({data: tags});
       $(".chosen-select").chosen({
         no_results_text: "There's no tag with that name",
-        width: "200px",
+        width: "50%",
+        margin: "0 25%",
         max_selected_options: 5
       });
     }.bind(this));
   },
   render: function() {
     return (
-      <div id="upload-div" className="form" className="modal"  className={this.props.showModal ? "" : "hidden" }>
-        <h5 onClick={this.finishUpload}> X </h5>
+      <div id="modal" className="form" className={this.props.showModal ? "" : "hidden" }>
+        <h3 className="close" onClick={this.finishUpload}> X </h3> 
+        <input type="text" id="title-input" placeholder="The title of the paper" ref="title" />
         <select data-placeholder="Select some tags" className="chosen-select" ref="tags" multiple>
           {this.state.data.map(function(tag) {
             return (
@@ -69,9 +70,8 @@ var Upload = React.createClass({
             );
           }, this)}
         </select>
-        <input type="text" placeholder="The title of the paper" ref="title" />
-        <input type="file" ref="file" />
-        <input type="submit" onClick={this.uploadFile} value="Upload my file" />
+        <input className="file-input" type="file" ref="file" />
+        <input id="upload-button" type="submit" onClick={this.uploadFile} value="Upload my file" />
       </div>
     );
   }
