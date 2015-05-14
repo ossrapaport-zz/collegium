@@ -14,11 +14,11 @@ var TopBar = React.createClass({
   render: function() {
     return (
       <div id="topbar-div">
-        <button type="button" data-id="profile" onClick={this.handleClick}>Profile</button>
-        <button type="button" data-id="search" onClick={this.handleClick}>Search</button>
-        <button type="button" data-id="home" onClick={this.handleClick}>Home</button>
-        <button type="button" data-id="upload" onClick={this.handleUpload}>Upload Your Work</button>
-        <button type="button" data-id="logout" onClick={this.handleLogout}>Log Out</button> 
+        <button className="nav-button" type="button" data-id="profile" onClick={this.handleClick}>Profile</button>
+        <button className="nav-button" type="button" data-id="search" onClick={this.handleClick}>Search</button>
+        <button className="nav-button" type="button" data-id="home" onClick={this.handleClick}>Home</button>
+        <button className="nav-button" type="button" data-id="upload" onClick={this.handleUpload}>Upload Your Work</button>
+        <button className="nav-button" type="button" data-id="logout" onClick={this.handleLogout}>Log Out</button> 
       </div>
     );
   }
