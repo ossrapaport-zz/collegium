@@ -25,6 +25,7 @@ var Landing = React.createClass({
     //.error(function()) TODO: Implement error handling
   },
   handleSignUpRequest: function() {
+    debugger;
     this.setState({user: {}, mode: "signUpForm"});
   },
   handleLogOut: function() {
