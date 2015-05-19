@@ -8,4 +8,4 @@ Collegium disrupts this process. It offers peer-to-peer interactions and discuss
 
 === The Stack
 Collegium is built with a React.js front-end and a Ruby on Rails backend. The database is PostgreSQL. Gems of note include carrierwave, carrierwave-base64, and thin.  
-
+<hr>
