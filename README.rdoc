@@ -1,4 +1,10 @@
 == Collegium
 
-A social network for high school students to share, read, and discuss academic papers.
+Colegium is a social network for high school students to share, read, and discuss their class papers. It combines the social aspects of Facebook, from liking, commenting, and friend networks, with the academic rigor of a peer-reviewed journal. 
+
+Too often a high school student spends thirty hours working on a paper only to hand it in to his teacher and receive three sentences of comments to improve his work. This is not an ideal way to learn: from the single viewpoint presented to the small amount of feedback, it is no wonder that many students are left unsatisfied.
+
+Collegium disrupts this process. It offers peer-to-peer interactions and discussions, allowing students to engage with each others' ideas. It also facilitates a conversation that the user is interested in through tag-specific search and results sorted by relevance. It even encourages students to discover new topics they might be interested in through a feed showing recent paper uploads from within their network.
+
+
 
