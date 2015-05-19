@@ -4,8 +4,11 @@ Colegium is a social network for high school students to share, read, and discus
 
 Too often a high school student spends thirty hours working on a paper only to hand it in to his teacher and receive three sentences of comments to improve his work. This is not an ideal way to learn: from the single viewpoint presented to the small amount of feedback, it is no wonder that many students are left unsatisfied.
 
-Collegium disrupts this process. It offers peer-to-peer interactions and discussions, allowing students to engage with each others' ideas. It also facilitates a conversation that the user is interested in through tag-specific search and results sorted by relevance. It even encourages students to discover new topics they might be interested in through a feed showing recent paper uploads from within their network.
+Collegium disrupts this process. It offers peer-to-peer interactions and discussions, allowing students to engage with each others' ideas. It also facilitates a conversation that the user is interested in through tag-specific search and results sorted by relevance. Through these discussions students can hone their ideas and their writing even after the paper is submitted. It even encourages students to discover new topics they might be interested in through a feed showing recent paper uploads from within their network.
+
+A user creates a Collegium account and immediately arrives at her homepage. There, a user can upload her papers, view papers from people in her network and comment them on, and visit her own profile to view her own papers.  
 
 === The Stack
-Collegium is built with a React.js front-end and a Ruby on Rails backend. The database is PostgreSQL. Gems of note include carrierwave, carrierwave-base64, and thin.  
-<hr>
+
+Collegium is built with a React.js front-end and a Ruby on Rails backend. The database is PostgreSQL. Gems of note include carrierwave, carrierwave-base64, and thin. It is hosted on DigitalOcean.  
+
