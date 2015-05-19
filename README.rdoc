@@ -6,5 +6,6 @@ Too often a high school student spends thirty hours working on a paper only to h
 
 Collegium disrupts this process. It offers peer-to-peer interactions and discussions, allowing students to engage with each others' ideas. It also facilitates a conversation that the user is interested in through tag-specific search and results sorted by relevance. It even encourages students to discover new topics they might be interested in through a feed showing recent paper uploads from within their network.
 
-= The Tech
+=== The Stack
+Collegium is built with a React.js front-end and a Ruby on Rails backend. The database is PostgreSQL. Gems of note include carrierwave, carrierwave-base64, and thin.  
 
