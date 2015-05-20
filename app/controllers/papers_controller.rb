@@ -40,14 +40,14 @@ class PapersController < ApplicationController
       render json: { errors: paper.errors.full_messages}, status: 422
     end
   end
-
+  #Reviews a paper so that it can be shown up
   def review
     paper = Paper.find(params[:id])
     paper.review_count = paper.review_count + 1
     paper.save
     render json: paper
   end
-
+  #Upvote a paper, incrementing its rating by 1
   def upvote
     paper = Paper.find(params[:id])
     paper.rating = paper.rating + 1
@@ -59,7 +59,7 @@ class PapersController < ApplicationController
     }
     render json: paper_data
   end
-
+  #Search for papers by tags
   def search
     tagIDs = params[:tags]
     tags_hash = Hash.new
