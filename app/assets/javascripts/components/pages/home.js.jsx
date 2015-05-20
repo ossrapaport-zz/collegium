@@ -1,3 +1,4 @@
+//The home view where the user lands upon logging in
 var Home = React.createClass({
   //TODO: What to add to this view?
   handlePaperClick: function(paperID) {
