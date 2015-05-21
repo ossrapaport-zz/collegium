@@ -24,5 +24,7 @@ module Collegium
     config.active_record.raise_in_transactional_callbacks = true
   
     config.react.addons = true
+
+    config.autoload_paths += %W["#{config.root}/app/validators/"]
   end
 end
