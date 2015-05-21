@@ -5,18 +5,16 @@ var Upload = React.createClass({
   },
   //A helper function to find all the selected values
   //from the tags menu
-  getSelectValues: function(select) {
-    var result = [];
-    var options = select && select.options;
-    var opt;
+  getSelectValues: function(menu) {
+    var selectedArray = [];
+    var options = menu.options;
 
     for (var i = 0; i < options.length; i ++) {
-      opt = options[i];
-      if (opt.selected) {
-        result.push( parseInt(opt.value) );
+      if (options[i].selected) {
+        selectedArray.push( parseInt(options[i].value) );
       }
     }
-    return result;
+    return selectedArray;
   },
   //Uploads the paper and all its data to the server
   uploadFile: function() {
@@ -58,8 +56,7 @@ var Upload = React.createClass({
   finishUpload: function(paperData) {
     React.findDOMNode(this.refs.title).value = "";
     React.findDOMNode(this.refs.file).value = "";
-    debugger;
-    //TODO: Clear the selected tags upon upload or close
+    $(React.findDOMNode(this.refs.tags)).val("").trigger("chosen:updated");
     React.findDOMNode(this.refs.tags).removeAttribute("selected");
     this.props.afterUpload();
   },
@@ -84,7 +81,7 @@ var Upload = React.createClass({
       <div id="modal" className="form" className={this.props.showModal ? "" : "hidden" }>
         <h3 className="close" onClick={this.finishUpload}> X </h3> 
         <input type="text" id="title-input" placeholder="The title of the paper" ref="title" />
-        <select data-placeholder="Select some tags" className="chosen-select" ref="tags" multiple>
+        <select data-placeholder="Select some tags" id="tags-select" className="chosen-select" ref="tags" multiple>
           {this.state.data.map(function(tag) {
             return (
               <option value={tag.id} key={tag.id}>{tag.name}</option>
