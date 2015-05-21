@@ -1,8 +1,11 @@
+//The feed, where any papers that are present are shown
 var Feed = React.createClass({
+  //Tells the Main view that a paper has been clicked
   handlePaperClick: function(e) {
     var paperID = parseInt( e.currentTarget.getAttribute("data-id") );
     this.props.onPaperClick(paperID);
   },
+  //Renders the papers if there are any; if not, shows nothing
   render: function() {
     var paperNodes;
     if (typeof this.props.data !== "undefined" && this.props.data.length) {

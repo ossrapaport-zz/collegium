@@ -1,7 +1,10 @@
 var Main = React.createClass({
+  //The view's state tracks the page, whether the upload modal
+  //is to be shown, and the current paper data
   getInitialState: function() {
     return {page: "home", show_modal: false, data: []};
   },
+  //Changes the state's current page to the newly selected one
   navigatePage: function(newPage) {
     var newState = {
       page: newPage 
@@ -11,11 +14,13 @@ var Main = React.createClass({
     }
     this.setState(newState);
   },
+  //Renders the page for a single paper 
   showPaper: function(paperID) {
     $.get("/papers/" + paperID).done(function(paperData) {
       this.setState({page: "paper", data: paperData});
     }.bind(this));
   },
+  //Searches for papers by tags coming from the Search view
   searchForPapers: function(paperTags) {
     $.post("/papers/search", {
       tags: paperTags
@@ -23,12 +28,16 @@ var Main = React.createClass({
       this.setState({data: papers});
     }.bind(this));
   },
+  //Shows the modal upon the user's click of Upload Your Work
   prepareUpload: function() {
     this.setState({show_modal: true});
   },
+  //Once the upload is done, or the user has exited, 
+  //the modal is hidden
   concludeUpload: function() {
     this.setState({show_modal: false});
   },
+  //Logs the user out upon the user's click of Log Out
   handleLogOut: function() {
     $.ajax({
       url: "/sessions",
@@ -37,6 +46,8 @@ var Main = React.createClass({
       this.props.onLogOut();
     }.bind(this));
   },
+  //Gets the relevant papers, whether all or just 
+  //the user's, from the server and stores them as state
   loadPapersFromServer: function() {
     if (this.state.page === "home") {
       $.get("/papers").done(function(papers) {
@@ -48,12 +59,17 @@ var Main = React.createClass({
       }.bind(this));
     } 
   },
+  //Before the component is on the DOM, makes call
+  //to the server for paper data 
   componentWillMount: function() {
     this.loadPapersFromServer();
   },
+  //Once the component is on the DOM, continues making
+  //calls to find new uploads
   componentDidMount: function() {
     setInterval(this.loadPapersFromServer, 2000);
   },
+  //Renders the view depending on the state's page
   render: function() {
     var page;
     if (this.state.page === "home") {

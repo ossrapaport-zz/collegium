@@ -1,7 +1,10 @@
 var FullPaper = React.createClass({
+  //Keeps track of the paper's likes
   getInitialState: function() {
     return {likes: this.props.data.paper.rating};
   },
+  //Increments the likes of the paper and then records that
+  //in the database
   upvote: function() {
     var incrementedLikes = this.state.likes ++;
     this.setState({likes: incrementedLikes})
@@ -12,6 +15,7 @@ var FullPaper = React.createClass({
       this.setState({likes: paperData.paper.rating})
     }.bind(this));
   },
+  //Renders the PDF object and its surroundings, like the CommentBox
   render: function() {
     var pdfURL = this.props.data.paper.attachment.url;
     return (
