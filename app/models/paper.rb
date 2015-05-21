@@ -8,6 +8,13 @@ class Paper < ActiveRecord::Base
 
   after_initialize :check_review_count
 
+  validates :title, presence: true
+  validates :user_id, presence: true
+  validates :attachment, presence: true
+  validates :rating, presence: true
+  validates :review_count, presence: true
+  validates :reviewed, inclusion: { in: [true, false ] }
+
   def check_review_count
     if self.review_count >= 3
       self.reviewed ||= true
