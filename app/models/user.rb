@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :school_name, presence: true, length: { minimum: 2 }, name: true
   validates :school_address, presence: true, length: { minimum: 2 }
   validates :school_state, presence: true, length: { in: 2..15 }
-  validates :school_zipcode, presence: true, length: { in: 5..10 }
+  validates :school_zipcode, presence: true, numericality: { only_integer: true }, length: { is: 5 }
   validates :reviewer, inclusion: { in: [true, false] }
 
 end
