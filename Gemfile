@@ -37,25 +37,24 @@ gem 'react-rails', '~> 1.0'
 #CarrierWave for AWS
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
-#Special CarrierWave-AWS gem
-#gem 'carrierwave-aws'
+#CarrierWave modification to allow reading encoded base64 strings  
 gem 'carrierwave-base64'
 
-#Fog AWS Gem
+#Currently unused gems for AWS
+#gem 'carrierwave-aws'
 #gem 'fog-aws'
-
-#AWS Gem
 #gem 'aws-sdk', '~> 1.58'
 
 #Gem for server
 gem 'thin'
 
-#Chosen for stylin'
+#Chosen and dependency for stylin'
 gem 'compass-rails', '~>2.0.2'
 gem 'chosen-rails'
 
 #Figaro for ENV management
 gem 'figaro'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

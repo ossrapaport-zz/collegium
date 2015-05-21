@@ -1,7 +1,6 @@
 var SignUp = React.createClass({
   handleSignUpSubmit: function(e) {
     e.preventDefault();
-    debugger;
     this.props.onSignUpRequest();
   },
   render: function() {

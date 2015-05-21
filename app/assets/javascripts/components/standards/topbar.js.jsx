@@ -1,16 +1,23 @@
 var TopBar = React.createClass({
+  //Implements page navigation and informs the Main view
+  //when it is desired
   handleClick: function(e) {
     e.preventDefault();
     this.props.onNavigation(e.currentTarget.getAttribute("data-id"));
   },
+  //Implements uploading and informs the main view when
+  //it is desired
   handleUpload: function(e) {
     e.preventDefault();
     this.props.onUpload();
   },
+  //Implements log out and informs the main view when
+  //it is desired
   handleLogout: function(e) {
     e.preventDefault();
     this.props.onLogOut();
   },
+  //Renders the view with the necessary buttons
   render: function() {
     return (
       <div id="topbar-div">

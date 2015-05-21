@@ -1,4 +1,5 @@
 var CommentLi = React.createClass({
+  //Each individual comment's representation
   render: function() {
     return (
       <div className="comment">

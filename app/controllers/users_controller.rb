@@ -23,14 +23,14 @@ class UsersController < ApplicationController
       render json: { errors: user.errors.full_messages }, status: 422
     end
   end
-
+  #Route to become reviewer once reviewing is implemented
   def become_reviewer
     user = User.find(params[:id])
     user.reviewer = true
     user.save
     render json: user
   end
-
+  #Find the papers of the particular user
   def get_papers
     user = User.find(params[:id])
     papers = user.papers
