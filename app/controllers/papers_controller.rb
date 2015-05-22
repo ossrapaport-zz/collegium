@@ -1,5 +1,7 @@
 class PapersController < ApplicationController
 
+  before_action :authenticate
+
   def index
     papers = Paper.all
     sorted = papers.order(:created_at)
@@ -32,15 +34,14 @@ class PapersController < ApplicationController
     end
   end
 
-  def update
+  def destroy
     paper = Paper.find(params[:id])
-    if paper.update(paper_params)
-      render json: paper
-    else
-      render json: { errors: paper.errors.full_messages}, status: 422
-    end
+    paper.destroy
+
+    render json: {msg: "Success"}
   end
-  #Reviews a paper so that it can be shown up
+
+  #Reviews a paper so that it can be shown
   def review
     paper = Paper.find(params[:id])
     paper.review_count = paper.review_count + 1

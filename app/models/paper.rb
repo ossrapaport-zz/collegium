@@ -9,10 +9,10 @@ class Paper < ActiveRecord::Base
   after_initialize :check_review_count
 
   validates :title, presence: true
-  validates :user_id, presence: true
+  validates :user_id, presence: true, numericality: { only_integer: true }
   validates :attachment, presence: true
-  validates :rating, presence: true
-  validates :review_count, presence: true
+  validates :rating, presence: true, numericality: { only_integer: true }
+  validates :review_count, presence: true, numericality: { only_integer: true }
   validates :reviewed, inclusion: { in: [true, false ] }
 
   def check_review_count

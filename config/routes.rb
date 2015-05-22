@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "home#index"
+  root "application#index"
   resources :users, only: [:show, :create, :update]
   put "users/:id/become_reviewer", :to => "users#become_reviewer"
   get "users/:id/papers", :to => "users#get_papers"
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   put "papers/:id/upvote", :to => "papers#upvote"
   put "papers/:id/review", :to => "papers#review"
   post "papers/search", :to => "papers#search"
-  resources :comments, only: [:edit, :destroy]
+  resources :comments, only: [:update, :destroy]
   resources :tags, only: [:index, :create]
   post "/sessions", :to => "sessions#create"
   delete "/sessions", :to => "sessions#destroy"
