@@ -1,5 +1,7 @@
 class PapersController < ApplicationController
 
+  before_action :authenticate
+
   def index
     papers = Paper.all
     sorted = papers.order(:created_at)

@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :authenticate
+
   def index
     paper = Paper.find(params[:paper_id])
     comments = paper.comments
